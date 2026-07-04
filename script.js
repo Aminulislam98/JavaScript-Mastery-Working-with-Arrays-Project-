@@ -119,13 +119,14 @@ console.log('Aminul'.at(-1));
 
 // Looping arrays : For each :
 //  in foreach method gives 3 parameter to the callback function , first one is the single element , second is the element current index, then the  array
+// In for Each method does not have break and continue operator
 movements.forEach(function (movement, index, array) {
-  console.log('current element:', movement);
-  console.log('current index:', index);
-  console.log('full array:', array);
+  // console.log('current element:', movement);
+  // console.log('current index:', index);
+  // console.log('full array:', array);
   if (movement > 0) {
-    console.log(`You deposit ${movement}`);
+    console.log(`Movement ${index}: You deposit ${movement}`);
   } else {
-    console.log(`You withdrew ${movement}`);
+    console.log(`Movement ${index}: You withdrew ${movement}`);
   }
 });
