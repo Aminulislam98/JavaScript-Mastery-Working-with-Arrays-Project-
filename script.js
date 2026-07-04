@@ -118,7 +118,11 @@ console.log('Aminul'.at(-1));
 // if a bracket notation has given -1 argument then it will return undefined , on the other hand the at() method gives -1 mean the last index so
 
 // Looping arrays : For each :
-movements.forEach(function (movement) {
+//  in foreach method gives 3 parameter to the callback function , first one is the single element , second is the element current index, then the  array
+movements.forEach(function (movement, index, array) {
+  console.log('current element:', movement);
+  console.log('current index:', index);
+  console.log('full array:', array);
   if (movement > 0) {
     console.log(`You deposit ${movement}`);
   } else {
