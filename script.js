@@ -100,3 +100,9 @@ console.log([...arr, ...reverseArr]);
 
 // Join method:
 console.log(letters.join(' 👉 '));
+
+// The new at method
+const dummyArr = [12, 42, 23];
+console.log(dummyArr[2]);
+console.log(dummyArr.at(2));
+console.log(dummyArr.slice(dummyArr.length - 1)[0]);
