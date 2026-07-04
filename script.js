@@ -147,3 +147,5 @@ currenciesUnique.forEach(function (value, value1, set) {
   console.log('This is Value:', value);
   console.log('This is Map:', set);
 });
+console.log(currenciesUnique instanceof Set);
+console.log(typeof currenciesUnique);
