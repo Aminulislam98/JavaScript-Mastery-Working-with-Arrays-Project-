@@ -105,4 +105,8 @@ console.log(letters.join(' 👉 '));
 const dummyArr = [12, 42, 23];
 console.log(dummyArr[2]);
 console.log(dummyArr.at(2));
+
+// getting last array element
 console.log(dummyArr.slice(dummyArr.length - 1)[0]);
+
+// at method has good features like, to get last index of array , at(-1) gives last index of the array
