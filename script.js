@@ -65,12 +65,6 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
@@ -129,4 +123,27 @@ movements.forEach(function (movement, index, array) {
   } else {
     console.log(`Movement ${index}: You withdrew ${movement}`);
   }
+});
+
+// ForEach with Maps
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+console.log('------ Map -----');
+currencies.forEach(function (value, key, map) {
+  console.log('This is Value:', value);
+  console.log('This is Key:', key);
+  console.log('This is Map:', map);
+});
+
+console.log('------ SET -----');
+// ForEach with sets
+// In set , while looping the set the callback function takes 3 parameter first : value, second: again value, third: the set full value:
+const currenciesUnique = new Set(['USD', 'EURO', 'GBP', 'USD', 'EURO', 'EURO']);
+currenciesUnique.forEach(function (value, value1, set) {
+  console.log('This is Value:', value);
+  console.log('This is Map:', set);
 });
