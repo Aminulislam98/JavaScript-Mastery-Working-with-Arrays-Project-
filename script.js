@@ -74,3 +74,18 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+// In javaScript slice method get no arguments then it make shallow copy of the full array:
+
+// Slice method
+console.log('Shallow copy:', movements.slice());
+console.log('Shallow copy:', [...movements]);
+
+// splice method
+// movements.splice(-1);
+// console.log(movements);
+
+// Reverse method
+// Reverse method does mutate the original array:
+const reverseArr = ['j', 'i', 'h', 'g', 'f'];
+console.log(reverseArr.reverse());
+console.log(reverseArr);
