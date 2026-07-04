@@ -110,3 +110,9 @@ console.log(dummyArr.at(2));
 console.log(dummyArr.slice(dummyArr.length - 1)[0]);
 
 // at method has good features like, to get last index of array , at(-1) gives last index of the array
+
+// at method also works in string
+console.log('Aminul'[-1]);
+console.log('Aminul'.at(-1));
+
+// if a bracket notation has given -1 argument then it will return undefined , on the other hand the at() method gives -1 mean the last index so
