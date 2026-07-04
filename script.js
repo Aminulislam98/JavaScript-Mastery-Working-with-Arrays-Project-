@@ -85,7 +85,15 @@ console.log('Shallow copy:', [...movements]);
 // console.log(movements);
 
 // Reverse method
+
+const arr = ['a', 'b', 'c', 'd', 'e'];
 // Reverse method does mutate the original array:
 const reverseArr = ['j', 'i', 'h', 'g', 'f'];
 console.log(reverseArr.reverse());
 console.log(reverseArr);
+
+// Concat
+// concat does not mutate the original array
+const letters = arr.concat(reverseArr);
+console.log(letters);
+console.log([...arr, ...reverseArr]);
