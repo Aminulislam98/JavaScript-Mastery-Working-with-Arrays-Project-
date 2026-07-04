@@ -116,3 +116,12 @@ console.log('Aminul'[-1]);
 console.log('Aminul'.at(-1));
 
 // if a bracket notation has given -1 argument then it will return undefined , on the other hand the at() method gives -1 mean the last index so
+
+// Looping arrays : For each :
+movements.forEach(function (movement) {
+  if (movement > 0) {
+    console.log(`You deposit ${movement}`);
+  } else {
+    console.log(`You withdrew ${movement}`);
+  }
+});
