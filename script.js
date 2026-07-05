@@ -89,7 +89,6 @@ displayMovements(account1.movements);
 
 // Computing Username
 const user = 'Steven Thomas Williams'; // stw
-
 const createUserName = accounts => {
   accounts.forEach(function (account) {
     account.owner = account.owner
@@ -101,9 +100,11 @@ const createUserName = accounts => {
 };
 createUserName(accounts);
 
-const deposit = movements.filter(movement => movement > 0);
-const withdrawal = movements.filter(movement => movement < 0);
-
-// Reduce method ;
-// Accumulator -> means a bank where we put money together
-const balance = movements.reduce((acc, value) => acc + value, 0);
+// calculating the balance to display
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, value) => acc + value, 0);
+  labelBalance.textContent = 'Loading...';
+  labelBalance.textContent = `$${balance} EUR`;
+  return balance;
+};
+calcDisplayBalance(account1.movements);

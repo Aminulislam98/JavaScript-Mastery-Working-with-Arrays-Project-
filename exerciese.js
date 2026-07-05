@@ -31,3 +31,10 @@ const movementsDescriptions = movements.map((movement, index) => {
   return `Movement ${index + 1}: You ${movement > 0 ? 'deposit' : 'withdrew'} ${movement}`;
 });
 console.log(movementsDescriptions);
+
+const deposit = movements.filter(movement => movement > 0);
+const withdrawal = movements.filter(movement => movement < 0);
+
+// Reduce method ;
+// Accumulator -> means a bank where we put money together
+const balance = movements.reduce((acc, value) => acc + value, 0);
