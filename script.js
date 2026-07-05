@@ -91,3 +91,12 @@ const eurToUsd = 1.1;
 // One thing to keep in mind that map method return new array containing of result of applied condition on each element
 const movementsToUSD = movements.map(movement => movement * eurToUsd);
 console.log(movementsToUSD);
+
+const movementsDescriptions = movements.map((movement, index, arr) => {
+  if (movement > 0) {
+    return `Movement ${index + 1}: You deposited ${movement}`;
+  } else {
+    return `Movement ${index + 1}: You withdrawal ${movement}`;
+  }
+});
+console.log(movementsDescriptions);
