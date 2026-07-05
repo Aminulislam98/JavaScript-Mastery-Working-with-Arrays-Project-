@@ -108,3 +108,9 @@ const calcDisplayBalance = function (movements) {
   return balance;
 };
 calcDisplayBalance(account1.movements);
+
+const max = movements.reduce((acc, value) => {
+  return acc > value ? acc : value;
+}, movements[0]);
+
+console.log(max);
