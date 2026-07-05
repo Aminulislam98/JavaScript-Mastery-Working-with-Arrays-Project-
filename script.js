@@ -70,6 +70,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /////////////////////////////////////////////////
 // Creating dom elements
 function displayMovements(movements) {
+  containerMovements.innerHTML = '';
   movements.forEach(function (movement, index) {
     const type = movement > 0 ? 'deposit' : 'withdrawal';
 
@@ -80,6 +81,7 @@ function displayMovements(movements) {
     </div>
     `;
     // insertAdjacentElement method take to arguments , first is position second id the element
+    // Practiced about insertAdjacentHTML
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 }
