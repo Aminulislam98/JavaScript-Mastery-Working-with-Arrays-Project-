@@ -86,3 +86,18 @@ function displayMovements(movements) {
   });
 }
 displayMovements(account1.movements);
+
+// Computing Username
+const user = 'Steven Thomas Williams'; // stw
+
+const createUserName = accounts => {
+  accounts.forEach(function (account) {
+    account.owner = account.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUserName(accounts);
+console.log(accounts);
