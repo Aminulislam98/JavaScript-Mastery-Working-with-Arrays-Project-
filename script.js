@@ -86,13 +86,3 @@ function displayMovements(movements) {
   });
 }
 displayMovements(account1.movements);
-
-const eurToUsd = 1.1;
-// One thing to keep in mind that map method return new array containing of result of applied condition on each element
-const movementsToUSD = movements.map(movement => movement * eurToUsd);
-console.log(movementsToUSD);
-
-const movementsDescriptions = movements.map((movement, index) => {
-  return `Movement ${index + 1}: You ${movement > 0 ? 'deposit' : 'withdrew'} ${movement}`;
-});
-console.log(movementsDescriptions);
