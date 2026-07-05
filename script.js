@@ -100,4 +100,6 @@ const createUserName = accounts => {
   });
 };
 createUserName(accounts);
-console.log(accounts);
+
+const deposit = movements.filter(movement => movement > 0);
+const withdrawal = movements.filter(movement => movement < 0);
