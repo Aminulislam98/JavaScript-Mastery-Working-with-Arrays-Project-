@@ -86,3 +86,7 @@ function displayMovements(movements) {
   });
 }
 displayMovements(account1.movements);
+
+const eurToUsd = 1.1;
+const movementsToUSD = movements.map(movement => movement * eurToUsd);
+console.log(movementsToUSD);
