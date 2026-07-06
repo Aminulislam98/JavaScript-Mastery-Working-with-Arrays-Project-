@@ -217,3 +217,10 @@ btnClose.addEventListener('click', e => {
     inputCloseUsername.value = inputClosePin.value = '';
   }
 });
+
+const lastWithdrawal = movements.findLast(movement => movement < 0);
+
+const latestLargeMovementIndex = movements.findLastIndex(
+  movement => Math.abs(movement) > 2000,
+);
+console.log(latestLargeMovementIndex);
