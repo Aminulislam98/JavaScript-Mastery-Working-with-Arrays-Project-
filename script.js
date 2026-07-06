@@ -109,8 +109,19 @@ const calcDisplayBalance = function (movements) {
 };
 calcDisplayBalance(account1.movements);
 
-const max = movements.reduce((acc, value) => {
-  return acc > value ? acc : value;
-}, movements[0]);
+const calcAverageHumanAge = allDogs => {
+  // Converting into them human age
+  let humanAge = allDogs.map(value =>
+    value <= 2 ? 2 * value : 16 + value * 4,
+  );
+  // filtering the adult dogs
+  const adultDogs = humanAge.filter(age => age >= 18);
 
-console.log(max);
+  // average age of the adult age
+  const averageAge =
+    adultDogs.reduce((acc, value) => acc + value, 0) / adultDogs.length;
+
+  return averageAge;
+};
+
+console.log(calcAverageHumanAge([4, 4, 4, 4, 4]));
