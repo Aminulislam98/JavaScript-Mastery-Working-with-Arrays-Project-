@@ -234,7 +234,12 @@ btnClose.addEventListener('click', e => {
   }
 });
 
-// Some and every
-// every method always check all the condition if it is true then true other wise false
-console.log(movements.every(movement => movement > 0));
-console.log(account4.movements.every(movement => movement > 0));
+// Flat and Flatmap
+const arr = [[4, 5, 7, 2, 2], [4, 5, 2, 6], 32, 2, 1];
+console.log(arr.flat());
+
+const overallBalance = accounts
+  .map(account => account.movements)
+  .flat()
+  .reduce((acc, movement) => acc + movement, 0);
+console.log(overallBalance);

@@ -81,3 +81,8 @@ console.log(latestLargeMovementIndex);
 console.log(
   `Your latest large movement was ${movements.length - latestLargeMovementIndex} movements ago`,
 );
+
+// Some and every
+// every method always check all the condition if it is true then true other wise false
+console.log(movements.every(movement => movement > 0));
+console.log(account4.movements.every(movement => movement > 0));
