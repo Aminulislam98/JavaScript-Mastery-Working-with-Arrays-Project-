@@ -77,7 +77,7 @@ function displayMovements(movements) {
     const html = `
     <div class="movements__row">
       <div class="movements__type movements__type--${type}">${index + 1} ${type}</div>
-      <div class="movements__value">${movement}</div>
+      <div class="movements__value">${movement}€</div>
     </div>
     `;
     // insertAdjacentElement method take to arguments , first is position second id the element
@@ -87,6 +87,13 @@ function displayMovements(movements) {
 }
 displayMovements(account1.movements);
 
+const calcDisplayInSummary = movements => {
+  const balance = movements
+    .filter(movement => movement > 0)
+    .reduce((acc, movement, i, arr) => acc + movement, 0);
+  labelSumIn.textContent = `${balance}€`;
+};
+calcDisplayInSummary(account1.movements);
 // Computing Username
 const user = 'Steven Thomas Williams'; // stw
 const createUserName = accounts => {
@@ -104,6 +111,7 @@ createUserName(accounts);
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, value) => acc + value, 0);
   labelBalance.textContent = 'Loading...';
-  labelBalance.textContent = `$${balance} EUR`;
+  labelBalance.textContent = `${balance}€`;
   return balance;
 };
+calcDisplayBalance(movements);
