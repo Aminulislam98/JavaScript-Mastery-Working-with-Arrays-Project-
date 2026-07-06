@@ -68,3 +68,16 @@ const account = accounts.find(
   account => account.owner === 'Steven Thomas Williams',
 );
 console.log(account);
+
+const lastWithdrawal = movements.findLast(movement => movement < 0);
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const latestLargeMovementIndex = movements.findLastIndex(
+  movement => Math.abs(movement) > 2000,
+);
+console.log(latestLargeMovementIndex);
+
+console.log(
+  `Your latest large movement was ${movements.length - latestLargeMovementIndex} movements ago`,
+);
