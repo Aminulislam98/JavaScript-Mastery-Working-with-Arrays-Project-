@@ -162,7 +162,7 @@ btnLogin.addEventListener('click', e => {
   if (user?.pin === Number(inputLoginPin.value)) containerApp.style.opacity = 1;
 
   // display welcome message
-  labelWelcome.textContent = `Welcome ${user.owner.split(' ')[0]}`;
+  labelWelcome.textContent = `Welcome ${user?.owner.split(' ')[0]}`;
 
   // Clear input value
   inputLoginUsername.value = inputLoginPin.value = '';
@@ -193,5 +193,27 @@ btnTransfer.addEventListener('click', e => {
 
     inputTransferTo.value = inputTransferAmount.value = '';
     console.log('transfer successful!');
+  }
+});
+
+// Closing Account
+btnClose.addEventListener('click', e => {
+  e.preventDefault();
+  const currentUser = user.userName === inputCloseUsername.value;
+  const userPin = user.pin === Number(inputClosePin.value);
+
+  if (currentUser && userPin) {
+    const index = accounts.findIndex(
+      account => account.userName === currentUser,
+    );
+
+    // Hide ui
+    containerApp.style.opacity = 0;
+
+    // removed account
+    accounts.splice(index, 1);
+
+    // make empty the input value
+    inputCloseUsername.value = inputClosePin.value = '';
   }
 });
