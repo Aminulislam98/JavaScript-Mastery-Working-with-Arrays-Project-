@@ -235,3 +235,6 @@ btnClose.addEventListener('click', e => {
 });
 
 // Some and every
+// every method always check all the condition if it is true then true other wise false
+console.log(movements.every(movement => movement > 0));
+console.log(account4.movements.every(movement => movement > 0));
