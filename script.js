@@ -196,6 +196,22 @@ btnTransfer.addEventListener('click', e => {
   }
 });
 
+// applying for loan
+btnLoan.addEventListener('click', e => {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+  if (amount > 0 && user.movements.some(movement => movement >= amount * 0.1)) {
+    // Add amount if passed
+    user.movements.push(amount);
+
+    // update ui after getting loan
+    updateUi(user);
+
+    //r removing the amount form input
+    inputLoanAmount.value = '';
+  }
+});
+
 // Closing Account
 btnClose.addEventListener('click', e => {
   e.preventDefault();
@@ -217,3 +233,5 @@ btnClose.addEventListener('click', e => {
     inputCloseUsername.value = inputClosePin.value = '';
   }
 });
+
+// Some and every
