@@ -94,6 +94,14 @@ const calcDisplayInSummary = movements => {
   labelSumIn.textContent = `${balance}€`;
 };
 calcDisplayInSummary(account1.movements);
+
+const calcDisplayOutSummary = movements => {
+  const balance = movements
+    .filter(movement => movement < 0)
+    .reduce((acc, movement, i, arr) => acc + movement, 0);
+  labelSumOut.textContent = `${balance}€`;
+};
+calcDisplayOutSummary(account1.movements);
 // Computing Username
 const user = 'Steven Thomas Williams'; // stw
 const createUserName = accounts => {
