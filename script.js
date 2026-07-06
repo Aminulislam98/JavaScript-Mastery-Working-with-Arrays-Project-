@@ -315,3 +315,10 @@ const fetchWeight = breeds
 const heaviestFetchWeight = Math.max(...fetchWeight);
 
 console.log(heaviestFetchWeight);
+
+// Ascending
+movements.sort((a, b) => a - b);
+console.log(movements);
+
+movements.sort((a, b) => b - a);
+console.log(movements);
