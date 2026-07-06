@@ -94,17 +94,17 @@ const calcDisplayOutSummary = movements => {};
 calcDisplayOutSummary(account1.movements);
 
 // Computing Username
-// const user = 'Steven Thomas Williams'; // stw
-// const createUserName = accounts => {
-//   accounts.forEach(function (account) {
-//     account.owner = account.owner
-//       .toLowerCase()
-//       .split(' ')
-//       .map(name => name[0])
-//       .join('');
-//   });
-// };
-// createUserName(accounts);
+
+const createUserName = accounts => {
+  accounts.forEach(function (account) {
+    account.userName = account.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUserName(accounts);
 
 // calculating the balance to display
 const calcDisplayBalance = function (movements) {
@@ -112,26 +112,57 @@ const calcDisplayBalance = function (movements) {
   labelBalance.textContent = 'Loading...';
   labelBalance.textContent = `${balance}€`;
 
+  // Display out going balance
+};
+
+const calcDisplaySummary = account => {
   // Display in coming balance
-  const incomes = movements
+  const incomes = account.movements
     .filter(movement => movement > 0)
     .reduce((acc, movement, i, arr) => acc + movement, 0);
   labelSumIn.textContent = `${incomes}€`;
 
-  // Display out going balance
-  const out = movements
-    .filter(movement => movement < 0)
-    .reduce((acc, movement, i, arr) => acc + movement, 0);
-  labelSumOut.textContent = `${Math.abs(out)}€`;
-
   // display Interest
-
-  const interest = movements
+  const interest = account.movements
     .filter(movement => movement > 0)
-    .map(movement => (1.2 / 100) * movement)
+    .map(movement => (account.interestRate / 100) * movement)
     .filter(movement => movement >= 1)
     .reduce((acc, movement, i, arr) => acc + movement, 0);
 
   labelSumInterest.textContent = `${interest}€`;
+
+  // display out
+  const out = account.movements
+    .filter(movement => movement < 0)
+    .reduce((acc, movement, i, arr) => acc + movement, 0);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
 };
-calcDisplayBalance(movements);
+
+// Login
+btnLogin.addEventListener('click', e => {
+  e.preventDefault();
+  console.log('LOGIN');
+
+  const user = accounts.find(
+    account => account.userName === inputLoginUsername.value,
+  );
+
+  // check pin number
+  if (user.pin === Number(inputLoginPin.value)) containerApp.style.opacity = 1;
+
+  // display welcome message
+  labelWelcome.textContent = `Welcome ${user.owner.split(' ')[0]}`;
+
+  // Clear input value
+  inputLoginUsername.value = inputLoginPin.value = '';
+  inputLoginPin.blur();
+
+  // Display Movements
+  displayMovements(user.movements);
+
+  // display balance
+  calcDisplayBalance(user.movements);
+
+  // display incomes
+  calcDisplaySummary(user);
+});
