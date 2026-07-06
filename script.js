@@ -244,91 +244,16 @@ btnSort.addEventListener('click', e => {
   shorted = !shorted;
 });
 
-const breeds = [
-  {
-    breed: 'German Shepherd',
-    averageWeight: 32,
-    activities: ['fetch', 'swimming'],
-  },
-  {
-    breed: 'Dalmatian',
-    averageWeight: 24,
-    activities: ['running', 'fetch', 'agility'],
-  },
-  {
-    breed: 'Labrador',
-    averageWeight: 28,
-    activities: ['swimming', 'fetch'],
-  },
-  {
-    breed: 'Beagle',
-    averageWeight: 12,
-    activities: ['digging', 'fetch'],
-  },
-  {
-    breed: 'Husky',
-    averageWeight: 26,
-    activities: ['running', 'agility', 'swimming'],
-  },
-  {
-    breed: 'Bulldog',
-    averageWeight: 36,
-    activities: ['sleeping'],
-  },
-  {
-    breed: 'Poodle',
-    averageWeight: 18,
-    activities: ['agility', 'fetch'],
-  },
-];
-
-// Stored the average value of husky 1
-const huskyWeight = breeds.find(breed => breed.breed === 'Husky').averageWeight;
-console.log(huskyWeight);
-
-// found out the conditional object 2
-const dogBothActivities = breeds.find(
-  breed =>
-    breed.activities.includes('running') && breed.activities.includes('fetch'),
-);
-console.log(dogBothActivities);
-
-// allActivities of all the dogs activities 3
-const allActivities = breeds.map(breed => breed.activities).flat();
-console.log(allActivities);
-
-// Find all uniqueActivities 4
-const uniqueActivities = [...new Set(allActivities)];
-console.log(uniqueActivities);
-
-// stored all other activities that likes swimming 5
-const swimmingAdjacent = new Set(
-  breeds
-    .filter(breed => breed.activities.includes('swimming'))
-    .flatMap(breed => breed.activities)
-    .filter(breed => breed !== 'swimming'),
-);
-console.log('answer', swimmingAdjacent);
-
-// average weight 10kg check
-const averageWeight = breeds.every(breed => breed.averageWeight >= 10);
-console.log(averageWeight);
-
-// active or not active 6
-const active = breeds.some(breed => breed.activities.length) >= 3;
-console.log(active);
-
-// Bonus exercise
-const fetchWeight = breeds
-  .filter(breed => breed.activities.includes('fetch'))
-  .map(breed => breed.averageWeight);
-const heaviestFetchWeight = Math.max(...fetchWeight);
-
-console.log(heaviestFetchWeight);
-
-// Ascending
-movements.sort((a, b) => a - b);
+// Array grouping
 console.log(movements);
 
-movements.sort((a, b) => b - a);
-console.log(movements);
+const accountMoves = Object.groupBy(accounts, account => {
+  const movementCount = account.movements.length;
+  if (movementCount >= 8) return 'very active';
+  if (movementCount >= 5) return 'active';
+  if (movementCount >= 1) return 'moderate';
+  else {
+    return 'inactive';
+  }
+});
+console.log(accountMoves);
