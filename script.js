@@ -94,7 +94,6 @@ const calcDisplayOutSummary = movements => {};
 calcDisplayOutSummary(account1.movements);
 
 // Computing Username
-
 const createUserName = accounts => {
   accounts.forEach(function (account) {
     account.userName = account.owner
@@ -181,6 +180,7 @@ btnTransfer.addEventListener('click', e => {
     account => account.userName === inputTransferTo.value,
   );
 
+  // checking validation
   if (
     amount > 0 &&
     receiverAcc &&
