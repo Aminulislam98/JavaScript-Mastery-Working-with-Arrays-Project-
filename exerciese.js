@@ -51,19 +51,20 @@ calcDisplayBalance(account1.movements);
 
 const calcAverageHumanAge = allDogs => {
   // Converting into them human age
-  let humanAges = allDogs.map(value =>
-    value <= 2 ? 2 * value : 16 + value * 4,
-  );
-  // filtering the adult dogs
-  const adultDogs = humanAges.filter(age => age >= 18);
+  let humanAges = allDogs
+    .map(value => (value <= 2 ? 2 * value : 16 + value * 4))
+    .filter(age => age >= 18)
+    .reduce((acc, value, i, arr) => acc + value / arr.length, 0);
 
-  // average age of the adult age
-  const averageAge =
-    // adultDogs.reduce((acc, value) => acc + value, 0) / adultDogs.length;
-    adultDogs.reduce((acc, value, i, arr) => acc + value / arr.length, 0);
-
-  return averageAge;
+  return humanAges;
 };
 
 console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
 console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+
+console.log('-------Hi------');
+console.log(accounts);
+const account = accounts.find(
+  account => account.owner === 'Steven Thomas Williams',
+);
+console.log(account);

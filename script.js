@@ -94,17 +94,17 @@ const calcDisplayOutSummary = movements => {};
 calcDisplayOutSummary(account1.movements);
 
 // Computing Username
-const user = 'Steven Thomas Williams'; // stw
-const createUserName = accounts => {
-  accounts.forEach(function (account) {
-    account.owner = account.owner
-      .toLowerCase()
-      .split(' ')
-      .map(name => name[0])
-      .join('');
-  });
-};
-createUserName(accounts);
+// const user = 'Steven Thomas Williams'; // stw
+// const createUserName = accounts => {
+//   accounts.forEach(function (account) {
+//     account.owner = account.owner
+//       .toLowerCase()
+//       .split(' ')
+//       .map(name => name[0])
+//       .join('');
+//   });
+// };
+// createUserName(accounts);
 
 // calculating the balance to display
 const calcDisplayBalance = function (movements) {
@@ -135,16 +135,3 @@ const calcDisplayBalance = function (movements) {
   labelSumInterest.textContent = `${interest}€`;
 };
 calcDisplayBalance(movements);
-
-const calcAverageHumanAge = allDogs => {
-  // Converting into them human age
-  let humanAges = allDogs
-    .map(value => (value <= 2 ? 2 * value : 16 + value * 4))
-    .filter(age => age >= 18)
-    .reduce((acc, value, i, arr) => acc + value / arr.length, 0);
-
-  return humanAges;
-};
-
-console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
-console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
