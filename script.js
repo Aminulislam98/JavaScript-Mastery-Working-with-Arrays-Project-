@@ -69,9 +69,11 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 // Creating dom elements
-function displayMovements(movements) {
+function displayMovements(movements, sorted = false) {
   containerMovements.innerHTML = '';
-  movements.forEach(function (movement, index) {
+
+  const movs = sorted ? movements.slice().sort((a, b) => a - b) : movements;
+  movs.forEach(function (movement, index) {
     const type = movement > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -232,6 +234,14 @@ btnClose.addEventListener('click', e => {
     // make empty the input value
     inputCloseUsername.value = inputClosePin.value = '';
   }
+});
+
+// sorting
+let shorted = false;
+btnSort.addEventListener('click', e => {
+  e.preventDefault();
+  displayMovements(user.movements, !shorted);
+  shorted = !shorted;
 });
 
 const breeds = [
