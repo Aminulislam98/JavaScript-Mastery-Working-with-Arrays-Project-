@@ -87,21 +87,12 @@ function displayMovements(movements) {
 }
 displayMovements(account1.movements);
 
-const calcDisplayInSummary = movements => {
-  const balance = movements
-    .filter(movement => movement > 0)
-    .reduce((acc, movement, i, arr) => acc + movement, 0);
-  labelSumIn.textContent = `${balance}€`;
-};
+const calcDisplayInSummary = movements => {};
 calcDisplayInSummary(account1.movements);
 
-const calcDisplayOutSummary = movements => {
-  const balance = movements
-    .filter(movement => movement < 0)
-    .reduce((acc, movement, i, arr) => acc + movement, 0);
-  labelSumOut.textContent = `${balance}€`;
-};
+const calcDisplayOutSummary = movements => {};
 calcDisplayOutSummary(account1.movements);
+
 // Computing Username
 const user = 'Steven Thomas Williams'; // stw
 const createUserName = accounts => {
@@ -120,6 +111,40 @@ const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, value) => acc + value, 0);
   labelBalance.textContent = 'Loading...';
   labelBalance.textContent = `${balance}€`;
-  return balance;
+
+  // Display in coming balance
+  const incomes = movements
+    .filter(movement => movement > 0)
+    .reduce((acc, movement, i, arr) => acc + movement, 0);
+  labelSumIn.textContent = `${incomes}€`;
+
+  // Display out going balance
+  const out = movements
+    .filter(movement => movement < 0)
+    .reduce((acc, movement, i, arr) => acc + movement, 0);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  // display Interest
+
+  const interest = movements
+    .filter(movement => movement > 0)
+    .map(movement => (1.2 / 100) * movement)
+    .filter(movement => movement >= 1)
+    .reduce((acc, movement, i, arr) => acc + movement, 0);
+
+  labelSumInterest.textContent = `${interest}€`;
 };
 calcDisplayBalance(movements);
+
+const calcAverageHumanAge = allDogs => {
+  // Converting into them human age
+  let humanAges = allDogs
+    .map(value => (value <= 2 ? 2 * value : 16 + value * 4))
+    .filter(age => age >= 18)
+    .reduce((acc, value, i, arr) => acc + value / arr.length, 0);
+
+  return humanAges;
+};
+
+console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
