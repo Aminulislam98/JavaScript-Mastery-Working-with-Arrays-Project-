@@ -308,14 +308,28 @@ const numDeposit1000 = accounts
 console.log(numDeposit1000);
 
 // Solved Problem number 3
-const sums = accounts
+const { deposit, withdrawals } = accounts
   .flatMap(account => account.movements)
   .reduce(
     (acc, move) => {
-      move > 0 ? (acc.deposit += move) : (acc.withdrawals += move);
+      // move > 0 ? (acc.deposit += move) : (acc.withdrawals += move);
+      acc[move > 0 ? 'deposit' : 'withdrawals'] += move;
       return acc;
     },
     { deposit: 0, withdrawals: 0 },
   );
 
-console.log(sums);
+console.log(deposit, withdrawals);
+
+const convertTitleCase = title => {
+  const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+  const capitalized = str => str[0].toUpperCase() + str.slice(1);
+
+  return title
+    .toLowerCase()
+    .split(' ')
+    .map(word => (exceptions.includes(word) ? word : capitalized(word)))
+    .join(' ');
+};
+
+console.log(convertTitleCase('tHis iS a NiCe tiTle'));
