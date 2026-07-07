@@ -295,3 +295,9 @@ const bankDepositSum = accounts
   .filter(movement => movement > 0)
   .reduce((acc, value) => acc + value, 0);
 console.log(bankDepositSum);
+
+// Solved Problem number 2
+const numDeposit1000 = accounts
+  .flatMap(account => account.movements)
+  .filter(movement => movement >= 1000);
+console.log(numDeposit1000);
