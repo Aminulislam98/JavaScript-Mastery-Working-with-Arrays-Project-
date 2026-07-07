@@ -274,3 +274,8 @@ const z = Array.from({ length: 7 }, () => 1);
 console.log(z);
 const y = Array.from({ length: 5 }, (_, i) => i + 1);
 console.log(y);
+
+const randomDiceRoll = Array.from({ length: 10 }, (_, i) =>
+  Math.round(Math.random() * i),
+);
+console.log(randomDiceRoll);
