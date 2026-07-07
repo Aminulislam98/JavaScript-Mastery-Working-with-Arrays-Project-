@@ -279,3 +279,12 @@ const randomDiceRoll = Array.from({ length: 10 }, (_, i) =>
   Math.round(Math.random() * i),
 );
 console.log(randomDiceRoll);
+
+labelBalance.addEventListener('click', () => {
+  const movementsUi = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', '')),
+  );
+
+  console.log(movementsUi);
+});
