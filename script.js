@@ -269,3 +269,8 @@ const x = new Array(8);
 
 x.fill(2);
 console.log(x);
+
+const z = Array.from({ length: 7 }, () => 1);
+console.log(z);
+const y = Array.from({ length: 5 }, (_, i) => i + 1);
+console.log(y);
