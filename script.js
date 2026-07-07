@@ -264,3 +264,8 @@ console.log(accountMoves);
 
 const groupedAccount = Object.groupBy(accounts, ({ type }) => type);
 console.log(groupedAccount);
+
+const x = new Array(8);
+
+x.fill(2);
+console.log(x);
