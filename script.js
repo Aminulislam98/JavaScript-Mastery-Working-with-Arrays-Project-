@@ -301,9 +301,8 @@ console.log(bankDepositSum);
 //   .flatMap(account => account.movements)
 //   .filter(movement => movement >= 1000);
 // console.log(numDeposit1000);
-
 const numDeposit1000 = accounts
   .flatMap(account => account.movements)
   // .reduce((acc, movement) => (movement >= 1000 && acc + 1), 0);
-  .reduce((acc, movement) => (movement >= 1000 ? acc + 1 : acc), 0);
+  .reduce((acc, movement) => (movement >= 1000 ? ++acc : acc), 0);
 console.log(numDeposit1000);
