@@ -187,3 +187,24 @@ console.log(movements);
 
 movements.sort((a, b) => b - a);
 console.log(movements);
+
+// Non destructive alternative: traversed . ToSorted . ToSpliced with
+
+// reversing the array with slice and reverse , but it also reverse the original one ;
+// console.log('Original', movements);
+// const reversedMov = movements.slice().reverse();
+// console.log('reversed', reversedMov);
+// console.log('Original', movements);
+
+// but there is another way to keep the original array untouched: toReversed() method
+console.log('--------- toReversed() method -------');
+
+console.log('Original', movements);
+const reversedMov = movements.toReversed();
+console.log('reversed', reversedMov);
+console.log('Original', movements);
+
+console.log('--------- With() Method -------------');
+const newMovements = movements.with(1, 40);
+console.log('New movements that is changed', newMovements);
+console.log('Original movements', movements);

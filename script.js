@@ -289,17 +289,9 @@ labelBalance.addEventListener('click', () => {
   console.log(movementsUi);
 });
 
-// Non destructive alternative: traversed . ToSorted . ToSpliced with
-
-// reversing the array with slice and reverse , but it also reverse the original one ;
-// console.log('Original', movements);
-// const reversedMov = movements.slice().reverse();
-// console.log('reversed', reversedMov);
-// console.log('Original', movements);
-
-// but there is another way to keep the original array untouched: toReversed() method
-
-console.log('Original', movements);
-const reversedMov = movements.toReversed();
-console.log('reversed', reversedMov);
-console.log('Original', movements);
+// Solved Problem number 1
+const bankDepositSum = accounts
+  .flatMap(account => account.movements)
+  .filter(movement => movement > 0)
+  .reduce((acc, value) => acc + value, 0);
+console.log(bankDepositSum);
