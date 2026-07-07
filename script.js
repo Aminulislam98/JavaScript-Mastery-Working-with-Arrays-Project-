@@ -306,3 +306,16 @@ const numDeposit1000 = accounts
   // .reduce((acc, movement) => (movement >= 1000 && acc + 1), 0);
   .reduce((acc, movement) => (movement >= 1000 ? ++acc : acc), 0);
 console.log(numDeposit1000);
+
+// Solved Problem number 3
+const sums = accounts
+  .flatMap(account => account.movements)
+  .reduce(
+    (acc, move) => {
+      move > 0 ? (acc.deposit += move) : (acc.withdrawals += move);
+      return acc;
+    },
+    { deposit: 0, withdrawals: 0 },
+  );
+
+console.log(sums);
