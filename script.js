@@ -381,3 +381,10 @@ dogs.forEach(dog => {
 
 const dogsType = Object.groupBy(dogs, dog => dog.type);
 console.log(dogsType);
+
+// Exercise 9. Group the dogs by the number of owners they have
+dogs.forEach(dog => {
+  dog.totalOwners = `Total ${dog.owners.length} ${dog.owners.length > 1 ? 'owners' : 'owner'}`;
+});
+const numberOfOwner = Object.groupBy(dogs, dog => dog.totalOwners);
+console.log(numberOfOwner);
