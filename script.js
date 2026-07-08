@@ -332,3 +332,12 @@ dogs.forEach(dog => {
     ownersTooMuch.push(...dog.owners);
   }
 });
+console.log(ownersTooLittle);
+console.log(ownersTooMuch);
+
+// Exercise 4. Log a string to the console for each array created in 3., like this: "Matilda and Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat too little!"
+
+const ownersTooMuchJoin = ownersTooMuch.join(' and ');
+console.log(`${ownersTooMuchJoin}'s dogs eat too much!`);
+const ownersTooLittleJoin = ownersTooLittle.join(' and ');
+console.log(`${ownersTooLittleJoin}'s dogs eat too little!`);
