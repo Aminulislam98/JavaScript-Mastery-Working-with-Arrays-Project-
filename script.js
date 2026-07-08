@@ -341,3 +341,10 @@ const ownersTooMuchJoin = ownersTooMuch.join(' and ');
 console.log(`${ownersTooMuchJoin}'s dogs eat too much!`);
 const ownersTooLittleJoin = ownersTooLittle.join(' and ');
 console.log(`${ownersTooLittleJoin}'s dogs eat too little!`);
+
+// Exercise  5 Log to the console whether there is ANY dog eating EXACTLY the amount of food that is recommended (just true or false)
+
+const exactlyRecommended = dogs.some(
+  dog => dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1,
+);
+console.log(exactlyRecommended);
