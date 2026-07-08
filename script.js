@@ -324,17 +324,25 @@ if (
 
 // Exercise 3
 
-const ownersTooMuch = [].flat();
-const ownersTooLittle = [].flat();
-dogs.forEach(dog => {
-  if (dog.curFood < dog.recFood * 0.9) {
-    ownersTooLittle.push(...dog.owners);
-  } else if (dog.curFood > dog.recFood * 1.1) {
-    ownersTooMuch.push(...dog.owners);
-  }
-});
-console.log(ownersTooLittle);
-console.log(ownersTooMuch);
+// const ownersTooMuch = [].flat();
+// const ownersTooLittle = [].flat();
+// dogs.forEach(dog => {
+//   if (dog.curFood < dog.recFood * 0.9) {
+//     ownersTooLittle.push(...dog.owners);
+//   } else if (dog.curFood > dog.recFood * 1.1) {
+//     ownersTooMuch.push(...dog.owners);
+//   }
+// });
+// console.log(ownersTooLittle);
+// console.log(ownersTooMuch);
+
+const ownersTooLittle = dogs
+  .filter(dog => dog.curFood < dog.recFood * 0.9)
+  .flatMap(dog => dog.owners);
+const ownersTooMuch = dogs
+  .filter(dog => dog.curFood > dog.recFood * 1.1)
+  .flatMap(dog => dog.owners);
+console.log(ownersTooLittle, ownersTooMuch);
 
 // Exercise 4. Log a string to the console for each array created in 3., like this: "Matilda and Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat too little!"
 
