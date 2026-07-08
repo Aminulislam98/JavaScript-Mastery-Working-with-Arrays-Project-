@@ -366,3 +366,18 @@ const allOkay1 = dogs.forEach(dog => {
   }
 });
 console.log(allDogsOkay);
+
+// Exercise 8. Group the dogs into the following 3 groups: 'exact', 'too-much' and 'too-little', based on whether they are eating too much, too little or the exact amount of food, based on the recommended food portion.
+
+dogs.forEach(dog => {
+  if (dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1) {
+    dog.type = 'eatingOkay';
+  } else if (dog.curFood < dog.recFood * 0.9) {
+    dog.type = 'eatingTooLittle';
+  } else if (dog.curFood > dog.recFood * 1.1) {
+    dog.type = 'eatingTooMuch';
+  }
+});
+
+const dogsType = Object.groupBy(dogs, dog => dog.type);
+console.log(dogsType);
