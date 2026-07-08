@@ -348,3 +348,10 @@ const exactlyRecommended = dogs.some(
   dog => dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1,
 );
 console.log(exactlyRecommended);
+
+// Exercise 6. Log to the console whether ALL of the dogs are eating an OKAY amount of food (just true or false)
+
+const allOkay = dogs.every(
+  dog => dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1,
+);
+console.log(allOkay);
