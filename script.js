@@ -255,3 +255,5 @@ const arr = [1, 2, 3, 4, 5];
 console.log(arr);
 
 console.log(arr.findIndex(element => element > 4));
+
+console.log('--------Exercise-------');
