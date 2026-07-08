@@ -247,3 +247,11 @@ btnSort.addEventListener('click', e => {
   displayMovements(user.movements, !shorted);
   shorted = !shorted;
 });
+
+console.log(['b', 'd', 'c', 'a'].sort());
+
+const arr = [1, 2, 3, 4, 5];
+
+console.log(arr);
+
+console.log(arr.findIndex(element => element > 4));
