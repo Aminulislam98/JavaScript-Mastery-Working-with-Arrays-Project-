@@ -320,3 +320,15 @@ if (
 } else if (sarahDog.curFood > sarahDog.recFood * 1.1) {
   console.log('Eating too much 🥺');
 }
+
+// Exercise 3
+
+const ownersTooMuch = [].flat();
+const ownersTooLittle = [].flat();
+dogs.forEach(dog => {
+  if (dog.curFood < dog.recFood * 0.9) {
+    ownersTooLittle.push(...dog.owners);
+  } else if (dog.curFood > dog.recFood * 1.1) {
+    ownersTooMuch.push(...dog.owners);
+  }
+});
