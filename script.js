@@ -280,7 +280,8 @@ YOUR TASKS:
 4. Log a string to the console for each array created in 3., like this: "Matilda and Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat too little!"
 5. Log to the console whether there is ANY dog eating EXACTLY the amount of food that is recommended (just true or false)
 6. Log to the console whether ALL of the dogs are eating an OKAY amount of food (just true or false)
-7. Create an array containing the dogs that are eating an OKAY amount of food (try to reuse the condition used in 6.)
+
+
 8. Group the dogs into the following 3 groups: 'exact', 'too-much' and 'too-little', based on whether they are eating too much, too little or the exact amount of food, based on the recommended food portion.
 9. Group the dogs by the number of owners they have
 10. Sort the dogs array by recommended food portion in an ascending order. Make sure to NOT mutate the original array!
@@ -355,3 +356,13 @@ const allOkay = dogs.every(
   dog => dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1,
 );
 console.log(allOkay);
+
+// Exercise 7. Create an array containing the dogs that are eating an OKAY amount of food (try to reuse the condition used in 6.)
+
+const allDogsOkay = [];
+const allOkay1 = dogs.forEach(dog => {
+  if (dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1) {
+    allDogsOkay.push(dog);
+  }
+});
+console.log(allDogsOkay);
