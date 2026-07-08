@@ -388,3 +388,9 @@ dogs.forEach(dog => {
 });
 const numberOfOwner = Object.groupBy(dogs, dog => dog.totalOwners);
 console.log(numberOfOwner);
+
+// Exercise 10. Sort the dogs array by recommended food portion in an ascending order. Make sure to NOT mutate the original array!
+
+console.log('Before:', dogs);
+const sortedDogsArray = dogs.toSorted((a, b) => a.recFood - b.recFood);
+console.log('After:', sortedDogsArray);
